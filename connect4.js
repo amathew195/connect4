@@ -85,8 +85,8 @@ function findSpotForCol(x) {
 function placeInTable(y, x) {
   // TODO: make a div and insert into correct table cell
   const checker = document.createElement("div");
-  checker.classList.add("piece",`p${currPlayer}`)
-  const cell = document.getElementById(`${y}-${x}`)
+  checker.classList.add("piece", `p${currPlayer}`);
+  const cell = document.getElementById(`${y}-${x}`);
   cell.append(checker);
 }
 
@@ -108,9 +108,7 @@ function handleClick(evt) {
     return;
   }
 
- // const checker = document.getElementByClass("piece")
 
- // checker.classList.add(`p${currPlayer}`)
   // place piece in board and add to HTML table
 
   // TODO: add line to update in-memory board
@@ -123,7 +121,7 @@ function handleClick(evt) {
 
   // check for tie
   // TODO: check if all cells in board are filled; if so call, call endGame
-    board.every(array=>!array.includes())
+  board.every(array => !array.includes());
   // switch players
   // TODO: switch currPlayer 1 <-> 2
 }
