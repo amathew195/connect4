@@ -18,6 +18,7 @@ var board = []; // array of rows, each row is array of cells  (board[y][x])
  */
 
 function makeBoard() {
+  return Array.from({ length: HEIGHT }).map(el => Array.from({ length: WIDTH }));
   // TODO: set "board" to empty HEIGHT x WIDTH matrix array
 }
 
@@ -25,13 +26,17 @@ function makeBoard() {
 
 function makeHtmlBoard() {
   // TODO: get "htmlBoard" variable from the item in HTML w/ID of "board"
+  const htmlBoard = document.querySelector("#board");
 
   // TODO: add comment for this code
+  // creating a top row element; adding an ID of "column-top";
+  //when user clicks top row handleclick function is activated
   var top = document.createElement("tr");
   top.setAttribute("id", "column-top");
   top.addEventListener("click", handleClick);
 
   // TODO: add comment for this code
+  //adding a number ID to each cell in the top row
   for (var x = 0; x < WIDTH; x++) {
     var headCell = document.createElement("td");
     headCell.setAttribute("id", x);
@@ -44,18 +49,19 @@ function makeHtmlBoard() {
   // uses WIDTH to create table cells for each row
   for (var y = 0; y < HEIGHT; y++) {
     // TODO: Create a table row element and assign to a "row" variable
-
+    const gameRow = document.createElement("tr");
     for (var x = 0; x < WIDTH; x++) {
       // TODO: Create a table cell element and assign to a "cell" variable
-
+      const gameColumn = document.createElement("td");
       // TODO: add an id, y-x, to the above table cell element
+      gameColumn.setAttribute("id", `${y}-${x}`);
       // you'll use this later, so make sure you use y-x
 
       // TODO: append the table cell to the table row
-
+      gameRow.append(gameColumn);
     }
     // TODO: append the row to the html board
-
+    htmlBoard.append(gameRow);
   }
 }
 
